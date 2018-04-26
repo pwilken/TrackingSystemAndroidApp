@@ -8,8 +8,8 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "de.oso"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion 23
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
