@@ -25,48 +25,27 @@ import io.flic.lib.FlicBroadcastReceiver
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var locManager: LocManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // location manager
-        locManager = LocManagerGooglePlayServices(this)
-
         setContentView(R.layout.activity_main)
+        SendToServerSingleton.locManager = LocManagerGooglePlayServices(this)
 
         // send button
         val btn = findViewById<Button>(R.id.button)
         btn.setOnClickListener( {
             Log.d("GUI", "button clicked")
-            send()
+            SendToServerSingleton.send()
         })
 
+        // flic button
         FlicManager.setAppCredentials("31eda4d5-302d-49b0-8d69-5ab86dc1325a",
                 "a4d85782-0bc6-419f-a993-77e999ae9be3",
                 "OSOAndroid");
         getFlicButton()
     }
 
-    fun send() {
-        val loc = locManager.lastLocation
-        val txt = findViewById<EditText>(R.id.editText)
-        val url = txt.text.toString()
 
-        Log.d("GUI", "trying sending loc<$loc> to url<$url>")
-        loc ?: return;
-
-        try {
-            if (url.startsWith("http")) {
-                HttpCommManager(URL(url)).sendLocation(loc);
-            } else {
-                HttpCommManager(URL("http", url, "")).sendLocation(loc)
-            }
-        }
-        catch(e: MalformedURLException) {
-            Log.d("GUI", "malformed URL<$url>", e)
-            logInGui("malformedUrl<$url>")
-        }
-    }
 
     fun logInGui(msg: String) {
         val log = findViewById<EditText>(R.id.txtLog)

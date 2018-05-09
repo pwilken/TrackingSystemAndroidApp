@@ -24,6 +24,7 @@ class ExampleBroadcastReceiver : FlicBroadcastReceiver() {
         } else {
             // Code for button down event here
             Log.d("FLIC", "button down")
+            SendToServerSingleton.send()
         }
     }
 
