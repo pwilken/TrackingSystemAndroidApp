@@ -19,6 +19,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        /*
+        We are now ready to receive events. The events will be sent to a broadcast receiver.
+        This way the app will receive events even if the Android system has shut down
+        the app process. The intent name to listen for is io.flic.FLICLIB_EVENT,
+        which we register in the AndroidManifest file.
+        */
+        <receiver
+            android:name=".ExampleBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="io.flic.FLICLIB_EVENT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

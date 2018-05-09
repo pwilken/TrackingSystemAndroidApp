@@ -35,4 +35,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-wearable:+'
     implementation 'com.google.android.gms:play-services-location:15.0.0'
     api 'com.google.android.gms:play-services-location:15.0.0'
+    implementation 'com.github.pwilken:fliclib-android:master'
 }
