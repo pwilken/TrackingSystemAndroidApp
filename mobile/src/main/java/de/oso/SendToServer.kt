@@ -14,10 +14,11 @@ object SendToServerSingleton{
     fun send() {
         val loc = locManager.lastLocation
         //val txt = findViewById<EditText>(R.id.editText)
-        val url = "http://test:8080"    //txt.text.toString()
+        val url = "fe40133e.ngrok.io"    //txt.text.toString()
 
         Log.d("GUI", "trying sending loc<$loc> to url<$url>")
-        loc ?: return;
+        //loc ?: return;
+
 
         try {
             if (url.startsWith("http")) {

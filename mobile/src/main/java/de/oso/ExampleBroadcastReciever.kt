@@ -2,6 +2,7 @@ package de.oso
 
 import android.content.Context
 import android.util.Log
+import android.widget.EditText
 import io.flic.lib.FlicBroadcastReceiver
 import io.flic.lib.FlicButton
 import io.flic.lib.FlicManager

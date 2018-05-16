@@ -13,7 +13,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 interface CommManager {
-    fun sendLocation(location: Location)
+    fun sendLocation(location: Location?)
 }
 
 class HttpCommManager(val baseUrl: URL) : CommManager {
@@ -21,11 +21,12 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
         Log.d("COMM", "creating HttpCommManager using baseUrl<$baseUrl>")
     }
 
-    override fun sendLocation(location: Location) {
+    override fun sendLocation(location: Location?) {
+        Log.d("OSO", "Start sending location.")
         val obj = URL(baseUrl, "emergency")
         val data = JSONObject()
-                .put("latitude", location.latitude)
-                .put("longitude", location.longitude)
+                .put("latitude", location?.latitude)
+                .put("longitude", location?.longitude)
                 .toString()
 
         Log.d("COMM", "Sending<$data> to<$obj>")
