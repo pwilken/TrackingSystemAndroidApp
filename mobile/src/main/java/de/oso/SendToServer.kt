@@ -14,7 +14,8 @@ object SendToServerSingleton{
     fun send() {
         val loc = locManager.lastLocation
         //val txt = findViewById<EditText>(R.id.editText)
-        val url = "fe40133e.ngrok.io"    //txt.text.toString()
+        val url = "51.38.113.244"  //txt.text.toString()
+        val port = 8080;
 
         Log.d("GUI", "trying sending loc<$loc> to url<$url>")
         //loc ?: return;
@@ -24,7 +25,7 @@ object SendToServerSingleton{
             if (url.startsWith("http")) {
                 HttpCommManager(URL(url)).sendLocation(loc);
             } else {
-                HttpCommManager(URL("http", url, "")).sendLocation(loc)
+                HttpCommManager(URL("http", url, port, "")).sendLocation(loc)
             }
         }
         catch(e: MalformedURLException) {
