@@ -4,7 +4,6 @@ import android.location.Location
 import android.os.AsyncTask
 import android.util.Log
 import khttp.post
-import org.json.JSONObject
 import java.net.URL
 
 interface CommManager {
@@ -25,8 +24,10 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
                     "${baseUrl}/emergency/emit",
                     json = mapOf(
                         "helpRequesterId" to 2,
-                        "latitude" to location?.latitude,
-                        "longitude" to location?.longitude
+                        mapOf(
+                            "latitude" to location?.latitude,
+                            "longitude" to location?.longitude
+                        ) to "coordinates"
                     )
                 )
             }
