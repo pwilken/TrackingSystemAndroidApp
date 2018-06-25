@@ -37,7 +37,7 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
                 with(obj.openConnection() as HttpURLConnection) {
                     // optional default is GET
                     requestMethod = "POST"
-
+                    headerFields["Content-Type"] = arrayListOf("application/json")
                     BufferedWriter(OutputStreamWriter(outputStream)).use {
                         it.write(data)
                     }
