@@ -25,6 +25,7 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
         Log.d("OSO", "Start sending location.")
         val obj = URL(baseUrl, "emergency/emit")
         val data = JSONObject()
+                .put("helpRequesterId", 2)
                 .put("latitude", location?.latitude)
                 .put("longitude", location?.longitude)
                 .toString()
