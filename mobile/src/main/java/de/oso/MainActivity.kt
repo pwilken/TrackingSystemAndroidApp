@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         // send button
         val btn = findViewById<Button>(R.id.button)
-        btn.setOnClickListener( {
+        btn.setOnClickListener {
             Log.d("GUI", "button clicked")
             SendToServerSingleton.send()
-        })
+        }
 
         // flic button
         FlicManager.setAppCredentials("31eda4d5-302d-49b0-8d69-5ab86dc1325a",

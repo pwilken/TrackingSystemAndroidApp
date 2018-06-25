@@ -23,7 +23,7 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
 
     override fun sendLocation(location: Location?) {
         Log.d("OSO", "Start sending location.")
-        val obj = URL(baseUrl, "emergency")
+        val obj = URL(baseUrl, "emergency/emit")
         val data = JSONObject()
                 .put("latitude", location?.latitude)
                 .put("longitude", location?.longitude)
