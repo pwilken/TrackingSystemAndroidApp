@@ -24,10 +24,10 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
                     "${baseUrl}/emergency/emit",
                     json = mapOf(
                         "helpRequesterId" to 2,
-                        mapOf(
+                        "coordinates" to mapOf(
                             "latitude" to location?.latitude,
                             "longitude" to location?.longitude
-                        ) to "coordinates"
+                        )
                     )
                 )
             }
