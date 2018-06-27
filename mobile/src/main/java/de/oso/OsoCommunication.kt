@@ -23,7 +23,7 @@ class HttpCommManager(val baseUrl: URL) : CommManager {
                 post(
                     "${baseUrl}/emergency/emit",
                     json = mapOf(
-                        "helpRequesterId" to 2,
+                        "helpRequesterId" to 3,
                         "coordinates" to mapOf(
                             "latitude" to location?.latitude,
                             "longitude" to location?.longitude
