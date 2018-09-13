@@ -13,7 +13,7 @@ Die Android FlicLib "https://github.com/50ButtonsEach/fliclib-android" wird per 
 
 So müssen wir die FlicLib Artefakte nicht selbst mitliefern.
 
-## Einrichten
+## How To Setup
 ##### Step 1: Installation of the Android Studio 
 https://developer.android.com/studio/install
 
